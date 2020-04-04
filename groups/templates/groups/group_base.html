@@ -1,0 +1,35 @@
+
+{% extends 'base.html'%} <!-- vuol dire inserisci qui la navigation toolbar contenuta in base -->
+
+{% block content %}
+
+{% load static %}
+
+<div class="container">
+    <div class="row">
+    
+    {% comment %} incollo dei blocchi che  {% endcomment %}
+    {% block pregroup %}{% endblock %}
+    {% block group_content %}{% endblock %}
+    {% block postgroup %}{% endblock %}
+
+
+
+    </div>
+
+</div>
+
+    
+
+
+    
+
+
+
+<!-- CSS -->
+{% comment %} <link rel="stylesheet" type="text/css" href={% static "css/file.css" %}> {% endcomment %}
+
+<!-- Javascript -->
+{% comment %} <script type="text/javascript" src={% static "js/file.js" %}></script> {% endcomment %}
+
+{% endblock %}
