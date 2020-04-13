@@ -25,3 +25,6 @@ sì funziona anche se deployare ancora su eroku ancora non mi trova posto per re
 
 STATIC_ROOT impostare dove sta puo risolvere il rpoblema
     
+dopo il deployare
+poi rollback
+ora non colelziona puyu staticfile anche se non ho rannato collectastatic
