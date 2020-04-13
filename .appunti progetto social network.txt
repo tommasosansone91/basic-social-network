@@ -1,1 +1,18 @@
 dice di installare cose nel vrtual environment
+
+fixare
+
+raise ImproperlyConfigured("You're using the staticfiles app "
+remote:        django.core.exceptions.ImproperlyConfigured: You're using the staticfiles app without having set the STATIC_ROOT setting to a filesystem path.
+
+da
+
+https://stackoverflow.com/questions/32790009/improperlyconfigured-staticfiles/32794774
+
+nuova cartella che chiamo staticfiles allos tesos livello dis tatics
+
+STATIC_ROOT
+
+forse risolvo così
+
+STATICSTORAGE = "Whitenoise.storage.CompressedManifestStaticFilesStorage" #zips up static files

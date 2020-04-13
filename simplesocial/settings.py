@@ -160,6 +160,11 @@ STATIC_URL = '/static/'
 # aggiungo 
 STATICFILES_DIR = [ os.path.join(BASE_DIR, 'static')]
 
+# aggiunti per fixare failed deploy
+# raise ImproperlyConfigured("You're using the staticfiles app " remote:        django.core.exceptions.ImproperlyConfigured: You're using the staticfiles app without having set the STATIC_ROOT setting to a filesystem path.
+STATICSTORAGE = "Whitenoise.storage.CompressedManifestStaticFilesStorage" #zips up static files
+django_heroku.settings(locals())  ###
+
 # login logout
 # mi dice quali sono le pagine cui veng reindirizzato quando eseguo login o logout
 # i nomi delle variabili sono probabilemtne preimpostate da django
