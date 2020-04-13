@@ -10,10 +10,16 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
-import os
+import os ###
+import django_heroku ###
+from decouple import config ###
+
+# per gestire user e password del database postgresql che cambiano ogni 24 ore sugli host
+import dj_database_url ###
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# questo c'era già, ma forse ho aggiunto la cosa identica in TEMPLATE_DIR
 
 #aggiungo
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
@@ -21,8 +27,10 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'g#1=#45k@2koqbzguv%ntj^jo#td8hw98u)y$$^o$)l@%mdc9g'
+# scret_key hidden in env variable files hidden from git
+SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -34,7 +42,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
 
-    # 'django_misaka',
     'groups',
     'posts',
     'bootstrap3',
@@ -85,14 +92,35 @@ WSGI_APPLICATION = 'simplesocial.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        
     }
 }
 
 
+database__default_credential_url= config("DATABASE_URL")
+
+# nascondi questa password
+# password 1 - .passwords.txt
+DATABASES['default']=dj_database_url.config(default=database__default_credential_url)
+
+# #postgres://user:password@host:porta/database_name
+
+#di questo comandi qui sopra DATABASES['default']=dj_database_url.config(default=  
+# non c'è bisogno in produzione  
+# perchè heroku maneggia questo usando dj database che ho messo sopra con dj_database_url
+# ne ho bisogno solo in locale per accedere al database.
+# quindi alla fine della produzione devo cancellarlo
+
+# questi sono settings minori
+db_from_env=dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
+
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
+
+# aggiunta delle funzioni di hashers per user authentication
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
