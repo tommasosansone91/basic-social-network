@@ -21,4 +21,7 @@ in settings
     in middleware
         'whitenoise.middleware.WhiteNoiseMiddleware', #zips up static files
 
+sì funziona anche se deployare ancora su eroku ancora non mi trova posto per requirements e stampa a video milkle cose
+
+STATIC_ROOT impostare dove sta puo risolvere il rpoblema
     
