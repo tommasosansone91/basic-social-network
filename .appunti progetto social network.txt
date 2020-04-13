@@ -15,4 +15,10 @@ STATIC_ROOT
 
 forse risolvo così
 
-STATICSTORAGE = "Whitenoise.storage.CompressedManifestStaticFilesStorage" #zips up static files
+in settings
+    STATICSTORAGE = "Whitenoise.storage.CompressedManifestStaticFilesStorage" #zips up static files
+
+    in middleware
+        'whitenoise.middleware.WhiteNoiseMiddleware', #zips up static files
+
+    
