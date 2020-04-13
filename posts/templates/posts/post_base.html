@@ -1,0 +1,26 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+{% load static %}
+
+<div class="posts-page">
+    <div class="container">
+        <div class="row">
+            {% block prepost %} {% endblock %}
+            {% block post_content %} {% endblock %}
+            {% block post_post %} {% endblock %}
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- CSS -->
+{% comment %} <link rel="stylesheet" type="text/css" href={% static "css/file.css" %}> {% endcomment %}
+
+<!-- Javascript -->
+{% comment %} <script type="text/javascript" src={% static "js/file.js" %}></script> {% endcomment %}
+
+{% endblock %}

@@ -4,27 +4,29 @@
 
     <h1>{{group.name}}</h1>
 
-    <h2>Member Count: {{group.members.count}}</h2>
+    <h2>Numero di iscritti: {{group.members.count}}</h2>
 
     <div class="content">
 
         {% if user in group.members.all %}
 
-            <a href="{%url 'group:leave' slug=group.slug %}" 
+            <a href="{%url 'groups:leave' slug=group.slug %}" 
             class='btn btn-lg btn-fill btn-warning'>
             
             {% comment %} icona per lasciare il gruppo {% endcomment %}
-            <span class='glyphicon glyphicon-remove-circle'></span>Leave</a>
+            <span class='glyphicon glyphicon-remove-circle'></span>Abbandona il gruppo</a>
 
         {% else %}
 
-            <a href="{%url 'group:join' slug=group.slug %}" 
+            <a href="{% url 'groups:join' slug=group.slug %}" 
             class='btn btn-lg btn-fill btn-warning'>
             
             {% comment %} icona per lasciare il gruppo {% endcomment %}
-            <span class='glyphicon glyphicon-ok-circle'></span>Leave</a>
+            <span class='glyphicon glyphicon-ok-circle'></span>Unisciti al gruppo</a>
         
+        {% endif %}
 
+{% comment %} mi dice che devo chiudere tutti i cicli prima di endblock {% endcomment %}
 {% endblock %}
 
 {% comment %} nuovo blocco {% endcomment %}
@@ -32,9 +34,11 @@
 {% block group_content %}
 
     <div class="col-md-8">
-        {% if group.posts.count==0 %} 
 
-        <h2>No posts in this group yet!</h2>
+        {% if group.posts.count == 0 %} 
+        {% comment %} i django tag vogliono sempre gli spazi tra stringhe e valori {% endcomment %}
+
+        <h2>Ancora nessun post in questo gruppo!</h2>
 
         {% else %}
 
@@ -42,6 +46,7 @@
 
                 {% comment %} inject html content, underscore è solo per capire le iniezioni {% endcomment %}
                 {% include "posts/_post.html" %}
+
             {% endfor %}
         
         {% endif %}

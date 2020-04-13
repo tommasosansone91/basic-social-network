@@ -21,5 +21,7 @@ class UserCreateForm(UserCreationForm):
             self.fields['username'].label = 'Display Name'
             self.fields['email'].label = 'Email Address'
 
+            # anche con errori rossi funziona lo stesso
+
 
         

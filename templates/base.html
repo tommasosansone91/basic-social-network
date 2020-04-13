@@ -44,14 +44,17 @@
 
                 {% if user.is_authenticated %}
 
-                    <li><a href="#">Post</a></li>
-                    <li><a href="#">Group</a></li>
-                    <li><a href="#">Create Group</a></li>
+                    
+                    <li><a href="{% url 'posts:all' %}">Posts</a></li>
+                    <li><a href="{% url 'posts:create' %}">Nuovo post</a></li>
+                    <li><a href="{% url 'groups:all' %}">Gruppi</a></li>
+                    {% comment %} <li><a href="{% url 'groups:create' %}">Nuovo gruppo</a></li> {% endcomment %}
                     <li><a href="{% url 'accounts:logout' %}">Log Out</a></li>
+                    <li><a href="#">User: {{user.username}}</a></li>
 
                 {% else %}
 
-                    <li><a href="#">Group</a></li>
+                    {% comment %} <li><a href="{% url 'groups:all' %}">Gruppi</a></li> {% endcomment %}
                     <li><a href="{% url 'accounts:login' %}">Log In</a></li>
                     <li><a href="{% url 'accounts:signup' %}">Sign Up</a></li>
 

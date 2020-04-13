@@ -1,3 +1,5 @@
-conda activate met5
+
 
 cd "C:\Users\Tommaso\Django rest framework\Udemy Django\simplesocial"
+
+conda activate met5

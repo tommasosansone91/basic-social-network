@@ -33,6 +33,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+
+    # 'django_misaka',
+    'groups',
+    'posts',
     'bootstrap3',
     'accounts',
     'django.contrib.admin',

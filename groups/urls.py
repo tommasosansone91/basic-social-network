@@ -12,9 +12,19 @@ urlpatterns = [
     name='all'),
 
     url(r'^new/$', 
-    views.CreateGroups.as_view(), 
+    views.CreateGroup.as_view(), 
     name='create'),
 
-    url(r'^posts/in/(?P<slug>[-\w]+)/$', """ slugifica il nome del gruppo  """ 
-    views.SingleGroups.as_view(), 
+    url(r'^posts/in/(?P<slug>[-\w]+)/$', # slugifica il nome del gruppo 
+    views.SingleGroup.as_view(), 
     name='single'),
+
+    url(r'join/(?P<slug>[-\w]+)/$', 
+    views.JoinGroup.as_view(), 
+    name='join'),
+
+    url(r'leave/(?P<slug>[-\w]+)/$', 
+    views.LeaveGroup.as_view(), 
+    name='leave'),
+
+]

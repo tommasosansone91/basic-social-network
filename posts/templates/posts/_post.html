@@ -1,3 +1,32 @@
-
-
 {% comment %} _post serve per l'inject di questo dentro altri {% endcomment %}
+
+<div class="post media">
+    <h3>{{post.message_html|safe}}</h3>
+    <div class="media-body">
+        {% comment %} <strong>{{post.user.username}}</strong> {% endcomment %}
+
+        <h5 class="media-heading">
+        <span class="username">
+            <!--  mi porta a tutti i post fatti da quell'user -->
+            <a href="{% url 'posts:for_user' username=post.user.username %}">@{{ post.user.username }}</a>
+        </span>
+
+        <!-- il time tag posta il tempo -->
+        <time class="time">
+        <a href="{% url 'posts:single' username=post.user.username pk=post.pk %}">{{ post.created_at }}</a>
+        {{ post.created_at}}
+        </time>
+
+		</h5>
+
+        <div class="media-footer">
+            {% if user.is_autenticated and post.user == user %}
+            <a href="{% url 'posts:delete' pk=post.pk %}" title="delete" class="btn btn-simple">
+                <span class="glyphicon glyphicon-remove text-danger" aria-hidden="true"></span>
+                <!-- aria hidden è per le persone con disabilità -->
+                <span class="text-danger icon-label">Delete</span>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</div>

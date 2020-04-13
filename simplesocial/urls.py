@@ -34,5 +34,9 @@ urlpatterns = [
     url(r'^test/$', views.TestPage.as_view(), name="test"),
     url(r'^thanks/$', views.ThanksPage.as_view(), name="thanks"),
 
+    # aggiunti dopo perchè nel tutorial mancavano
+    url(r'^posts/', include('posts.urls', namespace='posts')),
+    url(r'^groups/', include('groups.urls', namespace='groups')),
+
 
 ]

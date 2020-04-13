@@ -1,11 +1,16 @@
 {% extends 'groups/group_base.html' %} 
+
 {% load bootstrap3 %}
 
-{% block group:content %} 
-<h4>Create new group!</h4>
+{% block group_content %} 
 
-    <form action="{% url "groups:create" %}" method="post" id="GroupForm">
+<h4>Crea un nuovo gruppo!</h4>
+
+    <form action="{% url 'groups:create' %}" method="post" id="GroupForm">
         {% csrf_token %}
-        {% bootstrap_form %}
-        <input type="submit" class="btn btn-primary btn-large">
+        {% comment %} questo gli passa 1 parametro {% endcomment %}
+        {% bootstrap_form form %}
+        <input type="submit" value="create" class="btn btn-primary btn-large">
     </form>
+
+{% endblock %}
