@@ -47,22 +47,47 @@ class UserPosts(generic.ListView):
         context['post_user'] = self.post_user
         return context
 
+# l'errore è qui perchè la pk la prende e la pubblica anche
 class PostDetail(SelectRelatedMixin, generic.DetailView):
     model = models.Post
-    select_related = ('user', 'group') #group senza apostrofo?
+    select_related = ('user', 'group') 
+
+    #il problema è che non ritorna nessun queryset
 
     def get_queryset(self):
         queryset = super().get_queryset()
+
+    
         return queryset.filter(
+            # user.username
             user__username__iexact=self.kwargs.get('username'),
-            # Post__pk__iexact=self.kwargs.get('pk')
+
+            # # post.pk
+            # post__pk__iexact=self.kwargs.get('post__pk')
             )
+
+    # def get_queryset(self):
+    #     try:
+    #         #prende i post fatti dal'username che è lo stesso di quello che è loggato per guardarli
+    #         self.post_pk = Post.get(pk__iexact=self.kwargs.get('pk'))
+
+    #         # model dovrebbe essere post
+        
+    #     except Post.DoesNotExist:
+    #         raise Http404
+
+    #     else:
+    #         return self.post_pk
+
+
+
 
 
 class CreatePost(LoginRequiredMixin, SelectRelatedMixin, generic.CreateView):
 
     fields=('message', 'group')
     model = models.Post
+
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
