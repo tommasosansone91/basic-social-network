@@ -6,22 +6,22 @@
 
         <div class="content">
             {% if user.is_authenticated %}
-                <h2>Welcome back!
+                <h2>Bentornato
                 <a href="{% url 'posts:for_user' username=user.username %}">
-                @{{user.username}}
+                @{{user.username}}!
                 </a>
                 </h2>
             {% endif %}
 
-            <h2>Groups</h2>
+            <h2>Gruppi</h2>
             {% if user.is_authenticated %}
-                <p>Wecome to the groups page!</p>
+                <p>Benvenuto alla pagina dei gruppi!</p>
             {% endif %}
 
         </div>
         {% if user.is_authenticated %}
         <a href="{% url 'groups:create' %}" class='btn btn-md btn-fill btn-warning'>
-        <span class="glyphicon glyphicon-plus-sign">Create new group!</span>
+        <span class="glyphicon glyphicon-plus-sign">Crea nuovo gruppo!</span>
         </a>
         {% endif %}
 

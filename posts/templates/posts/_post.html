@@ -6,27 +6,50 @@
         {% comment %} <strong>{{post.user.username}}</strong> {% endcomment %}
 
         <h5 class="media-heading">
+        
         <span class="username">
             <!--  mi porta a tutti i post fatti da quell'user -->
             <a href="{% url 'posts:for_user' username=post.user.username %}">@{{ post.user.username }}</a>
         </span>
 
+        <a> – </a>
+
         <!-- il time tag posta il tempo -->
         <time class="time">
         <a href="{% url 'posts:single' username=post.user.username pk=post.pk %}">{{ post.created_at }}</a>
-        {{ post.created_at}}
+        
         </time>
+
+        <p>
+        PK: {{ post.pk }}<br>
+        username: {{ post.user.username }}
+        </p>
 
 		</h5>
 
+        {% comment %} sono uguali {% endcomment %}
+        {% comment %} {{post.user.username}}
+        {{user.username}} {% endcomment %}
+
+        
+
         <div class="media-footer">
-            {% if user.is_autenticated and post.user == user %}
+
+        
+            {% comment %} abilita la cancellazione di un post solo se lo user che lo ha postato è autenticato {% endcomment %}
+            {% if user.is_authenticated and post.user.username == user.username %}
+
+            
             <a href="{% url 'posts:delete' pk=post.pk %}" title="delete" class="btn btn-simple">
                 <span class="glyphicon glyphicon-remove text-danger" aria-hidden="true"></span>
                 <!-- aria hidden è per le persone con disabilità -->
                 <span class="text-danger icon-label">Delete</span>
             </a>
+
             {% endif %}
+
+
         </div>
+
     </div>
 </div>

@@ -50,7 +50,7 @@
                     <li><a href="{% url 'groups:all' %}">Gruppi</a></li>
                     {% comment %} <li><a href="{% url 'groups:create' %}">Nuovo gruppo</a></li> {% endcomment %}
                     <li><a href="{% url 'accounts:logout' %}">Log Out</a></li>
-                    <li><a href="#">User: {{user.username}}</a></li>
+                    <li><a href="{% url 'posts:for_user' username=user.username %}">User: {{user.username}}</a></li>
 
                 {% else %}
 
@@ -73,6 +73,8 @@
         {% endblock %}
 
     </div>
+
+    <br><br><br>
 
   </body>
 </html>
