@@ -18,7 +18,7 @@ urlpatterns = [
 
     # <username> è un argomento che gli viene passato in ingresso
     # mostra tutti i post dello user
-    url(r'by/(?P<username>[-\w]+)', 
+    url(r'by/(?P<username>[-\w]+)/$', 
     views.UserPosts.as_view(), 
     name='for_user'),
 
