@@ -2,6 +2,8 @@
 from django.conf.urls import url
 from . import views
 
+from django.urls import path
+
 #aggiunta da tutorial
 app_name = 'posts'
 
@@ -27,9 +29,12 @@ urlpatterns = [
     views.PostDetail.as_view(), 
     name='single'),
      
-    
     url(r'delete/(?P<pk>\d+)/$', 
     views.DeletePost.as_view(), 
     name='delete'),
+
+    # path('delete/<pk>/', 
+    # views.DeletePost.as_view(), 
+    # name='delete'),
 
 ]

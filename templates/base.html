@@ -33,12 +33,14 @@
   </head>
   <body>
 
+
+
     {% comment %} barra di navigazione {% endcomment %}
     <nav class="navbar mynav" role="navigation" id="navbar">
 
         <div class="container">
 
-            <a href="{% url 'home' %}">Il mio social network</a>
+            <a href="{% url 'home' %}">Il mio social network™</a>
 
             <ul class="nav navbar-nav navbar-right">
 
@@ -66,9 +68,14 @@
         </div>
     </nav>
 
+    
+
     <div class="container mycontent">
+    
 
         {% block content %}
+
+        
 
         {% endblock %}
 
@@ -76,5 +83,25 @@
 
     <br><br><br>
 
+
+  
+
+    <!-- HTML direct styling -->
+        <canvas id="c"></canvas>
+
+
+
+
   </body>
+
+<!-- CSS -->
+{% comment %} <link rel="stylesheet" type="text/css" href={% static "css/master.css" %}> {% endcomment %}
+
+<!-- JS -->
+<script src="{% static "simplesocial/js/master.js" %}" type="text/javascript" ></script>
+
+
+
+
+
 </html>

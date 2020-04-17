@@ -57,30 +57,10 @@ class PostDetail(SelectRelatedMixin, generic.DetailView):
     def get_queryset(self):
         queryset = super().get_queryset()
 
-    
         return queryset.filter(
             # user.username
             user__username__iexact=self.kwargs.get('username'),
-
-            # # post.pk
-            # post__pk__iexact=self.kwargs.get('post__pk')
             )
-
-    # def get_queryset(self):
-    #     try:
-    #         #prende i post fatti dal'username che è lo stesso di quello che è loggato per guardarli
-    #         self.post_pk = Post.get(pk__iexact=self.kwargs.get('pk'))
-
-    #         # model dovrebbe essere post
-        
-    #     except Post.DoesNotExist:
-    #         raise Http404
-
-    #     else:
-    #         return self.post_pk
-
-
-
 
 
 class CreatePost(LoginRequiredMixin, SelectRelatedMixin, generic.CreateView):

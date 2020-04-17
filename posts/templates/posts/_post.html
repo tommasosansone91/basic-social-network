@@ -20,10 +20,6 @@
         
         </time>
 
-        <p>
-        PK: {{ post.pk }}<br>
-        username: {{ post.user.username }}
-        </p>
 
 		</h5>
 
@@ -37,10 +33,10 @@
 
         
             {% comment %} abilita la cancellazione di un post solo se lo user che lo ha postato è autenticato {% endcomment %}
-            {% if user.is_authenticated and post.user.username == user.username %}
-
+            {% if user.is_authenticated and post.user.username == user.username and not hide_delete %}
             
-            <a href="{% url 'posts:delete' pk=post.pk %}" title="delete" class="btn btn-simple">
+            
+            <a href="{% url 'posts:delete'  pk=post.pk %}" title="delete" class="btn btn-simple">
                 <span class="glyphicon glyphicon-remove text-danger" aria-hidden="true"></span>
                 <!-- aria hidden è per le persone con disabilità -->
                 <span class="text-danger icon-label">Delete</span>
