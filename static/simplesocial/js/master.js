@@ -1,4 +1,5 @@
-// SOURCE: http://codepen.io/Thibka/pen/mWGxNj
+// SOURCE: https://codepen.io/towc/pen/NqdJwN
+
 window.onload = function(argument) {
     var request = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || function(cb) { return setTimeout(cb, 30) };  w = window.innerWidth, h = window.innerHeight;  var canvas = document.getElementById('c'); canvas.width = w, canvas.height = h;  var c = canvas.getContext("2d"), x = 100, y = 100, pointsObjectArray = [], frameCount = 1;  pointsNumber = 300, mouseCoordinate = [null, null], clickCheck = false;  window.document.body.onclick = function(argument) { mouseCoordinate = [argument.clientX, argument.clientY]; if (!clickCheck) { clickCheck = !clickCheck; } for (var i = 0; i < pointsNumber; i++) { pointsObjectArray[i] = new Point(); }; frameCount = 1; } 
        /* check the number of argument to make sure which dimension we want. (onely 1~3)*/
