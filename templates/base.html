@@ -9,9 +9,10 @@
     {% comment %} <meta name="keywords" content="social networke"> {% endcomment %}
     {% comment %} <meta name="description" content="social network"> {% endcomment %}
 
-    <!-- favicon -->
     {% load static %}
-    {% comment %} <link rel="shortcut icon" href="{% static 'img/metaglossary_favicon_6.png' %}" /> {% endcomment %}
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="{% static 'img/favicon/planet_favicon_1.png' %}" />
    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -29,7 +30,7 @@
     {% comment %} linkare i css che inserisco io per il blog {% endcomment %}
     <link rel="stylesheet" href={% static 'simplesocial/css/master.css' %}>
 
-    <title>Il mio social network</title>
+    <title>Social network di Tommaso</title>
   </head>
   <body>
 
@@ -40,25 +41,26 @@
 
         <div class="container">
 
-            <a href="{% url 'home' %}">Il mio social network™</a>
+            <a href="{% url 'home' %}">Social network di Tommaso™</a>
 
             <ul class="nav navbar-nav navbar-right">
 
                 {% if user.is_authenticated %}
 
                     
-                    <li><a href="{% url 'posts:all' %}">Posts</a></li>
+                    <li><a href="{% url 'posts:all' %}">Home</a></li>
                     <li><a href="{% url 'posts:create' %}">Nuovo post</a></li>
                     <li><a href="{% url 'groups:all' %}">Gruppi</a></li>
                     {% comment %} <li><a href="{% url 'groups:create' %}">Nuovo gruppo</a></li> {% endcomment %}
-                    <li><a href="{% url 'accounts:logout' %}">Log Out</a></li>
+                    
                     <li><a href="{% url 'posts:for_user' username=user.username %}">User: {{user.username}}</a></li>
-
+                    <li><a href="{% url 'accounts:logout' %}">Log Out</a></li>
+                    
                 {% else %}
 
                     {% comment %} <li><a href="{% url 'groups:all' %}">Gruppi</a></li> {% endcomment %}
-                    <li><a href="{% url 'accounts:login' %}">Log In</a></li>
-                    <li><a href="{% url 'accounts:signup' %}">Sign Up</a></li>
+                    <li><a href="{% url 'accounts:login' %}">Accedi</a></li>
+                    <li><a href="{% url 'accounts:signup' %}">Registrati</a></li>
 
                 {% endif %}
 
