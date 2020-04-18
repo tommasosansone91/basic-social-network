@@ -53,3 +53,12 @@ git init
 git remote add origin https://github.com/myprofile/app1.git
 
 (non so bene in che ordine)
+
+-------
+
+solo una origin può essere attiva
+
+# cancellare l'origin
+
+git remote rm origin
+
