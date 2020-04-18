@@ -27,7 +27,7 @@ git push heroku master
 ---- su git hub
 
 git init
-git remote add origin https://github.com/tommasosansone91/Glossario-Gestisco.git
+git remote add origin https://github.com/tommasosansone91/basic-social-network.git
 
 git add .
 git commit -m "messaggio qui"
