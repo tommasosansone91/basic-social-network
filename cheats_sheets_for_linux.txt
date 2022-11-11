@@ -13,7 +13,4 @@ source venv/bin/activate
 # per vedere i package installati nel venv correntemente attivo
 pip list
 
-# installa i requirements nel virtualenv
-pip install -r requirements.txt
---skip errors
-cat requirements.txt | xargs -n 1pip install
+
