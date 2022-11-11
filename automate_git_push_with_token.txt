@@ -1,0 +1,3 @@
+al momento di agigungere l'origine remota della repo
+
+git remote set-url origin https://<GITHUB_USER>:<TOKEN>@github.com/<GITHUB_USER>/<GITHUB_REPO_NAME>.git
