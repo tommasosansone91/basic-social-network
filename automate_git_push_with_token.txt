@@ -1,6 +1,6 @@
 configurare git conc redenziali personali
 
-git config --global user.email "tommaso.sansone91@virgilio.it"
+git config --global user.email "t***91@***.it"
 git config --global user.name "tommasosansone91"
 
 
