@@ -34,15 +34,7 @@ $ ssh-add ~/.ssh/id_rsa
 Enter passphrase for /c/Users/sansoneto/.ssh/id_rsa:M*********91
 Identity added: /c/Users/sansoneto/.ssh/id_rsa (tommaso.sansone91@virgilio.it)
 
-non funziona
-sudo apt install geomview
-
-SansoneTo@vt-sansoneto MINGW64 ~/Tommaso/files_privati/miei_progetti/corsi_udemy/the_git_and_github_bootcamp
-$ clip < ~/.ssh/id_rsa.pub
-
-oppure apro quel file e incollo tutto cio che e dentro
-
-e cio che è copiato la incollo nella pagina ad ssh key di github > settings > add ssh key
+apro quel file e incollo tutto cio che e dentro nella pagina ad ssh key di github > settings > add ssh key
 
 https://github.com/settings/ssh/new
 
