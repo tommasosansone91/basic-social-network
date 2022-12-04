@@ -1,0 +1,6 @@
+SECRET_KEY="g#1=#45k@2koqbzguv%ntj^jo#td8hw98u)y$$^o$)l@%mdc9g"
+DATABASE_URL="postgres://ybfuhcppdfyrtk:b84df24df692fc620dabf694702d489d2f014ce1b6542ba6c53a53a78efa55d5@ec2-34-241-212-219.eu-west-1.compute.amazonaws.com:5432/d6e46p9nbgqrq6"
+view_db_database="d6d4cin0bpau3t"
+view_db_host="ec2-54-217-204-34.eu-west-1.compute.amazonaws.com"
+view_db_password="a9061999f022a1bd287c90c11bbf55b63d32479bf2eb7999c28db4dd31dce3e7"
+view_db_user="iiibwwebmwmost"
