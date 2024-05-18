@@ -361,7 +361,7 @@ In the end, test that the app can be on the RPi without throwing any error.
     cd /var/www/basic-social-network
     source venv/bin/activate
 
-    python manage.py runserver 0.0.0.0:8002
+    python manage.py runserver 0.0.0.0:8004
 
 > [!NOTE]
 > Here you cannot still see the app running on <RPi>:<external_port> LAN IP, because the "exteranal" port is not configured yet.
@@ -404,7 +404,7 @@ This allows Nginx to find the app-specific configuration file `infrastructure/ng
 
 ### Check that Nginx is working
 
-In case the app is running because it was manually started via `python manage.py runserver 0.0.0.0:8002`,
+In case the app is running because it was manually started via `python manage.py runserver 0.0.0.0:8004`,
 stop it via <kbd>ctrl</kbd> + <kbd>D</kbd>.
 
 restart nginx
@@ -417,18 +417,18 @@ manually launch the app
     cd /var/www/basic-social-network
     source venv/bin/activate
 
-    python manage.py runserver 0.0.0.0:8002
+    python manage.py runserver 0.0.0.0:8004
 
 By using the browser of any other device (other than the RPi) connected to the LAN network,<br>
 connect via browser to both IP addresses
 
     http://<RPi_IP>
     http://<RPi_IP>:PORT_1  # e.g. the port of another app already running and exposed on the RPi
-    http://<RPi_IP>:3002
+    http://<RPi_IP>:3004
 
 **NOTE:** Make sure the prefix is **`http`** and not **`https`**.
 
-The other app should still be reachable, while on port `http://<RPi_IP>:3002` you should get `502 bad gateway`, as the HTTP WSGI server for is not installed yet.
+The other app should still be reachable, while on port `http://<RPi_IP>:3004` you should get `502 bad gateway`, as the HTTP WSGI server for is not installed yet.
 
 in case of errors, to rollback to the previous configuration, run
 
@@ -486,14 +486,14 @@ you should see the symbolic link and check that it is not colored in red
 ### run the app manually via gunicorn
 
 This command is to have Gunicorn running the python app.<br>
-It binds the app **internal** port (8002) on which the app is exposed by the command `python manage.py runserver localhost:8002`, to the address and port `localhost:8002`.<br>
+It binds the app **internal** port (8004) on which the app is exposed by the command `python manage.py runserver localhost:8004`, to the address and port `localhost:8004`.<br>
 The `--bind` part tells Gunicorn that it has to listen HTTP requests coming from that port (from the app).
 
     sudo su
     cd /var/www/basic-social-network
     source venv/bin/activate
 
-    PYTHONPATH=`pwd`/.. venv/bin/gunicorn basic-social-network.wsgi:application --bind localhost:8002
+    PYTHONPATH=`pwd`/.. venv/bin/gunicorn basic-social-network.wsgi:application --bind localhost:8004
 
 See here why PYTHONPATH=\`pwd\`/.. is required at the start of the line.
 
@@ -501,7 +501,7 @@ https://stackoverflow.com/a/39461113/7658051
 
 By using the browser of any other device (other than the RPi) connected to the LAN network, you should see the app running at
 
-http://192.168.1.106:3002/
+http://192.168.1.106:3004/
 
 
 ### Start the app manually in background via gunicorn (and gracefully exit the machine)
@@ -514,7 +514,7 @@ http://192.168.1.106:3002/
     cd /var/www/basic-social-network/
     source venv/bin/activate
 
-    sudo nohup env PYTHONPATH=`pwd`/.. venv/bin/gunicorn basic-social-network.wsgi:application --bind localhost:8002 > /home/pi/basic-social-network.log 2>&1 &
+    sudo nohup env PYTHONPATH=`pwd`/.. venv/bin/gunicorn basic-social-network.wsgi:application --bind localhost:8004 > /home/pi/basic-social-network.log 2>&1 &
 
 
 #### check that the app is up and running
@@ -532,7 +532,7 @@ To exit the RPi gracefully, press <kbd>ctrl</kbd> + <kbd>D</kbd>
 
 By using the browser of any other device (other than the RPi) connected to the LAN network, you should see the app still running at
 
-http://192.168.1.106:3002/
+http://192.168.1.106:3004/
 
 
 ## cron files
@@ -640,7 +640,7 @@ In the end, test that the service works after the RPi booting
 
 After a while, by using the browser of any other device (other than the RPi) connected to the LAN network, you should see the app automatically booted and running at
 
-http://192.168.1.106:3002/
+http://192.168.1.106:3004/
 
 <hr>
 

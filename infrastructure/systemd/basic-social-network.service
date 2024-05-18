@@ -41,7 +41,7 @@ After=network.target
 
 [Service]
 WorkingDirectory=/var/www/basic-social-network/
-ExecStart=/var/www/basic-social-network/venv/bin/gunicorn simplesocial.wsgi:application --bind localhost:8002
+ExecStart=/var/www/basic-social-network/venv/bin/gunicorn simplesocial.wsgi:application --bind localhost:8004
 
 StandardOutput=file:/var/log/basic-social-network/basic-social-network-stdout.log
 StandardError=file:/var/log/basic-social-network/basic-social-network-stderr.log
