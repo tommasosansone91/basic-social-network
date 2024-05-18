@@ -302,16 +302,6 @@ for every package which raises problems, open the file `requirements.txt`, look 
 
     cat requirements.txt | xargs -n 1 pip install
 
-## Safe install of pillow
-
-safe install `pillow` before massively installing all the other python modules
-
-    sudo apt-get install libjpeg-dev zlib1g-dev
-    pip3 install Pillow
-    sudo pip install -U setuptools
-
-this is valid only for this project
-
 ## Create the app tables in postgresql via python
 
 Once the app framework and postgres are both installed, create the tables required by the app to operate correctly.
