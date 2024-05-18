@@ -179,9 +179,8 @@ STATICSTORAGE = "Whitenoise.storage.CompressedManifestStaticFilesStorage" #zips 
 # django_heroku.settings(locals())  ###
 
 # provo ad aggiungere io in modo indipendente
-# STATIC_ROOT = [ os.path.join(BASE_DIR, 'staticfiles')]
-# in questa ci devo mettere un file a caso per farla beccare da git
-# non funiona
+STATIC_ROOT = [ os.path.join(BASE_DIR, 'staticfiles')]
+
 
 # login logout
 # mi dice quali sono le pagine cui veng reindirizzato quando eseguo login o logout
