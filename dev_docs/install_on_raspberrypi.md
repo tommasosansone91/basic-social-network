@@ -493,7 +493,7 @@ The `--bind` part tells Gunicorn that it has to listen HTTP requests coming from
     cd /var/www/basic-social-network
     source venv/bin/activate
 
-    PYTHONPATH=`pwd`/.. venv/bin/gunicorn basic-social-network.wsgi:application --bind localhost:8004
+    PYTHONPATH=`pwd`/.. venv/bin/gunicorn simplesocial.wsgi:application --bind localhost:8004
 
 See here why PYTHONPATH=\`pwd\`/.. is required at the start of the line.
 
@@ -514,7 +514,7 @@ http://192.168.1.106:3004/
     cd /var/www/basic-social-network/
     source venv/bin/activate
 
-    sudo nohup env PYTHONPATH=`pwd`/.. venv/bin/gunicorn basic-social-network.wsgi:application --bind localhost:8004 > /home/pi/basic-social-network.log 2>&1 &
+    sudo nohup env PYTHONPATH=`pwd`/.. venv/bin/gunicorn simplesocial.wsgi:application --bind localhost:8004 > /home/pi/basic-social-network.log 2>&1 &
 
 
 #### check that the app is up and running
@@ -574,7 +574,7 @@ Just enable the execution of the files target of the cron
 
 ## Log files
 
-Create directrory to host logs
+Create directory to host logs
 
     sudo mkdir /var/log/basic-social-network/
 
@@ -597,10 +597,6 @@ Run
     sudo su
     cd /var/www/basic-social-network/
     source venv/bin/activate
-
-make the file executable 
-
-    sudo chmod +x basic-social-network.service
 
 Create the symbolic links
 
