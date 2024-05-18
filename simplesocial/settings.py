@@ -30,7 +30,8 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # scret_key hidden in env variable files hidden from git
-SECRET_KEY = config("SECRET_KEY")
+# SECRET_KEY = config("SECRET_KEY")
+SECRET_KEY = "4590hgjv2f309kfcm4triq9w0j3mfcqr"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
