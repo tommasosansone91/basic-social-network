@@ -194,31 +194,31 @@ enter the postgres shell as `postgres` user
 
 create the new database
 
-    create database basic_django_ecommerce;  -- dash not ammitted, only underscores
+    create database basic_social_network;  -- dash not ammitted, only underscores
 
 create a "main" and a "readonly" user for the app
 
-    create user dbe_main WITH ENCRYPTED PASSWORD 'dbemain';  -- choose short one
+    create user basicsocialnetwork_main WITH ENCRYPTED PASSWORD 'bsnmain';  -- choose short one
 
-    create user dbe_readonly WITH ENCRYPTED PASSWORD 'dbereadonly';  -- choose short one
+    create user basicsocialnetwork_readonly WITH ENCRYPTED PASSWORD 'bsnreadonly';  -- choose short one
 
 make the main user the owner of the database
 
-    alter database basic_django_ecommerce OWNER TO dbe_main;
+    alter database basic_social_network OWNER TO basicsocialnetwork_main;
 
 exit the shell and test to reopen it as the "main user of the app"
 
     exit
 
-    psql -h localhost -U dbe_main -d basic_django_ecommerce
+    psql -h localhost -U basicsocialnetwork_main -d basic_social_network
 
 
 > [!IMPORTANT]
 > The database name, the database-owner user and its password become the credentials for the Django app to access the database.
 
-    'NAME': 'basic_django_ecommerce',
-    'USER': 'dbe_main',
-    'PASSWORD': 'dbemain',
+    'NAME': 'basic_social_network',
+    'USER': 'basicsocialnetwork_main',
+    'PASSWORD': 'bsnmain',
 
 These credentials must be inserted in the `DATABASES` variable in `settings.py` module of the Django main app (the one created by default by django, at the same folder level of the other django apps inside that Django project).
 

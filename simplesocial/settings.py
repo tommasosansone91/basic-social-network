@@ -91,10 +91,21 @@ WSGI_APPLICATION = 'simplesocial.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'basic_social_network',
+        'USER': 'basicsocialnetwork_main',
+        'PASSWORD': 'bsnmain',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
