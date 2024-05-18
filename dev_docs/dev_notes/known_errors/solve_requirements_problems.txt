@@ -1,12 +1,16 @@
+# solve requirements errors
+
 # installa i requirements nel virtualenv
-pip install -r requirements.txt
---skip errors
-cat requirements.txt | xargs -n 1 pip install
+
+    pip install -r requirements.txt
+    --skip errors
+    cat requirements.txt | xargs -n 1 pip install
 
 # in case it is shown
 ModuleNotFoundError: No module named 'django_heroku'
 
 run
-sudo apt install libpq-dev python3-dev
+
+    sudo apt install libpq-dev python3-dev
 
 https://stackoverflow.com/questions/5420789/how-to-install-psycopg2-with-pip-on-python
