@@ -1,0 +1,13 @@
+#-------------------------
+# cron per basic-social-network
+#-------------------------
+
+# sudo vim /etc/cron.d/basic-social-network-cron
+
+
+
+
+# tests
+# -------
+
+# * * * * * root cd /home/pi/;touch hello_time.txt;echo "hello the time is $(date)" >> hello_time.txt
