@@ -610,9 +610,9 @@ Check that the symbolic link is right, run
 
 you should see the symbolic link and check that it is not colored in red
 
-    lrwxrwxrwx 1 root root 52 May  1 11:04 /etc/systemd/system/multi-user.target.wants/basic-social-network.service -> /var/www/infrastructure/systemd/basic-social-network.service
+    lrwxrwxrwx 1 root root 52 May  1 11:04 /etc/systemd/system/multi-user.target.wants/basic-social-network.service -> /var/www/basic-social-network/infrastructure/systemd/basic-social-network.service
     
-    lrwxrwxrwx 1 root root 52 May  1 11:04 /etc/systemd/system/basic-social-network.service -> /var/www/infrastructure/systemd/basic-social-network.service
+    lrwxrwxrwx 1 root root 52 May  1 11:04 /etc/systemd/system/basic-social-network.service -> /var/www/basic-social-network/infrastructure/systemd/basic-social-network.service
 
 start the service 
 
